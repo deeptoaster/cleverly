@@ -129,7 +129,7 @@ class Cleverly {
               array_pop($this->state);
 
               if (count($this->state) !== 0) {
-                $buffer .= $set[self::OFFSET_CONTENT][0];
+                $buffer .= $set[self::OFFSET_CONTENT][0] . $indent;
               } else {
                 foreach ($foreach_from as $value) {
                   $this->display('string:' . $buffer, array(
@@ -137,6 +137,7 @@ class Cleverly {
                   ));
                 }
 
+                echo $indent;
                 array_pop($this->indent);
                 $buffer = '';
               }
@@ -162,10 +163,10 @@ class Cleverly {
               array_pop($this->state);
 
               if (count($this->state) !== 0) {
-                $buffer .= $set[self::OFFSET_CONTENT][0];
+                $buffer .= $set[self::OFFSET_CONTENT][0] . $indent;
               } else {
                 if ($if_evaluable) {
-                  $this->display('string:' . $buffer);
+                  $this->display('string:' . $buffer . $indent);
                 }
 
                 array_pop($this->indent);
