@@ -350,7 +350,7 @@ class Cleverly {
               }
             } else if ($set[self::OFFSET_IF_LEFT][0]) {
               $if_left = @$set[self::OFFSET_IF_LEFT_STRING][0] ?: (
-                @$set[self::OFFSET_IF_LEFT_NUMBER][0]
+                @strlen($set[self::OFFSET_IF_LEFT_NUMBER][0])
                   ? (float)$set[self::OFFSET_IF_LEFT_NUMBER][0]
                   : $this->applySubstitutions(
                     $set[self::OFFSET_IF_LEFT_VAR_NAME][0],
@@ -361,7 +361,7 @@ class Cleverly {
 
               if ($if_operator) {
                 $if_right = @$set[self::OFFSET_IF_RIGHT_STRING][0] ?: (
-                  @$set[self::OFFSET_IF_RIGHT_NUMBER][0]
+                  @strlen($set[self::OFFSET_IF_RIGHT_NUMBER][0])
                     ? (float)$set[self::OFFSET_IF_RIGHT_NUMBER][0]
                     : $this->applySubstitutions(
                       $set[self::OFFSET_IF_RIGHT_VAR_NAME][0],
